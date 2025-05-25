@@ -114,6 +114,45 @@
   </div>
 </section>
 
+<!-- Abstract -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Dexterous manipulation is critical to advancing robot capabilities in real-world applications, yet diverse and high-quality datasets remain scarce. Existing data collection methods either rely on human teleoperation or require significant human engineering, or are merely limited to grasping, restricting their scalability and generalization. In this paper, we introduce DexFlyWheel, a scalable data generation framework that employs a self-improving cycle to iteratively expand data diversity.
+            </p>
+            <p>
+              Starting from efficient seed demonstrations warmup, our framework expands data diversity via multiple iterations in the self-improving cycle. Each iteration follows a closed-loop pipeline that combines imitation learning, reinforcement learning, rollout trajectory collection, and data augmentation. At each iteration, we first use imitation learning to extract behavioral priors from demonstrations and employ reinforcement learning to enhance generalization. Based on our policy, we rollout trajectories in simulation and then augment these across different environments and objects positions.
+            </p>
+            <p>
+              As iterations progress, our framework generates more diverse data, including various objects, environments, and object positions. Experimental results show that policies trained on our dataset achieve an average success rate of 81.9% on the challenge test sets, with a real-world transfer success rate of 78.3% on dual-arm lift tasks.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Method -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Method</h2>
+      <div class="content has-text-centered">
+        <p class="subtitle has-text-centered">
+          DexFlyWheel employs a self-improving cycle that iteratively expands data diversity through imitation learning, reinforcement learning, and data augmentation.
+        </p>
+        <img src="static/images/method.jpg" alt="DexFlyWheel Method" style="max-width: 900px; width: 100%;"/>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Real Robot Results -->
 <section class="hero is-small">
   <div class="hero-body">
@@ -145,20 +184,6 @@
         <div class="column">
           <img src="static/images/keyinsight2.jpg" alt="Key Insight 2"/>
         </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-
-<!-- Method
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="subtitle has-text-centered is-2">
-        Generating infinitely diverse data from just a single demonstration per task.
-      </h2>
-      <div class="content has-text-centered">
-        <img src="static/images/method.gif" alt="DexFlyWheel Method"/>
       </div>
     </div>
   </div>
