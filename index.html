@@ -102,35 +102,84 @@
 </div>
 </section>
 
+<!-- After the title section and before Main video -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3" style="text-align: center;">Highlights</h2>
+      <div class="content has-text-justified">
+        <ul class="has-text-weight-medium">
+          <li>
+            DexFlyWheel is the <strong style="color: #B70101">first</strong> framework to continuously generate diverse and human-like dexterous manipulation data across different objects, environments, and spatial settings.
+          </li>
+          <li>
+            DexFlyWheel can generate infinite demonstrations with just one human demo per task, significantly <strong style="color: #B70101">reducing human effort</strong>.
+          </li>
+          <li>
+            DexFlyWheel exhibits <strong style="color: #B70101">strong generalizability</strong> on unseen scenarios in simulation, and successfully transfer in real dual-arm robot system.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr style="height: 1px; background-color: #E6E6E6; border: none; margin: 2rem auto; width: 50%;">
 
 <!-- Main video -->
 <section class="hero teaser">
   <div class="container is-max-desktop">
+    <!-- <h2 class="title is-3" style="text-align: center;">Summary Video</h2> -->
     <div class="hero-body">
       <video poster="" id="main-video" autoplay controls muted loop height="100%">
-        <source src="static/videos/main_video.mp4" type="video/mp4">
+        <source src="static/videos/teaservideo_h264.mp4" type="video/mp4">
       </video>
     </div>
   </div>
 </section>
 
-<!-- Abstract -->
+
+<!-- Motivation -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column">
-          <h2 class="title is-3">Abstract</h2>
-          <div class="content has-text-justified">
-            <p>
-              Dexterous manipulation is critical to advancing robot capabilities in real-world applications, yet diverse and high-quality datasets remain scarce. Existing data collection methods either rely on human teleoperation or require significant human engineering, or are merely limited to grasping, restricting their scalability and generalization. In this paper, we introduce DexFlyWheel, a scalable data generation framework that employs a self-improving cycle to iteratively expand data diversity.
-            </p>
-            <p>
-              Starting from efficient seed demonstrations warmup, our framework expands data diversity via multiple iterations in the self-improving cycle. Each iteration follows a closed-loop pipeline that combines imitation learning, reinforcement learning, rollout trajectory collection, and data augmentation. At each iteration, we first use imitation learning to extract behavioral priors from demonstrations and employ reinforcement learning to enhance generalization. Based on our policy, we rollout trajectories in simulation and then augment these across different environments and objects positions.
-            </p>
-            <p>
-              As iterations progress, our framework generates more diverse data, including various objects, environments, and object positions. Experimental results show that policies trained on our dataset achieve an average success rate of 81.9% on the challenge test sets, with a real-world transfer success rate of 78.3% on dual-arm lift tasks.
-            </p>
+      <h2 class="title is-3" style="text-align: center;">Motivation</h2>
+      <div class="content">
+        <!-- First motivation point -->
+        <div class="columns is-centered">
+          <div class="column">
+            <!-- 替换 motivation1.jpg 为您的图片 -->
+            <img src="static/images/insights1.jpg" alt="Motivation 1" style="width: 100%;"/>
+            <div class="content has-text-justified mt-4">
+              <p>
+                Existing methods are inherently constrained by their source human demonstrations, 
+                <span style="color: #B70101">suffering from limited diversity when handling different objects.</span>
+                This motivates us to rethink the role of human demonstrations in data generation pipelines.
+                <strong>We observe that manipulating different objects only induces minor changes in the manipulation trajectories.</strong>
+                This implies that Human demonstrations provide a strong behavioral prior in data generation.
+                <span style="color: #0066cc">Imitation learning (IL)</span> uses it to imitate 
+                <span style="color: #0066cc">human-like</span> trajectories.
+                <span style="color: rgb(255, 183, 0)">Residual reinforcement learning (RL)</span> further refines these priors to handle 
+                <span style="color: rgb(255, 183, 0)">diverse objects scenarios</span>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Second motivation point -->
+        <div class="columns is-centered mt-6"> <!-- mt-6 adds margin top -->
+          <div class="column">
+            <!-- 替换 motivation2.jpg 为您的图片 -->
+            <img src="static/images/insights2.jpg" alt="Motivation 2" style="width: 100%;"/>
+            <div class="content has-text-justified mt-4">
+              <p>
+                To achieve generalizable dexterous manipulation in the open world, robots need a mechanism for 
+                <strong>continuous data collection and policy performance improvement</strong>. 
+                This inspires us to build a <span style="color: #B70101">data flywheel</span> that enables 
+                <span style="color: #B70101">continuous self-improvement</span>, where better policies generate more diverse data, 
+                and enhanced data leads to more generalizable policies.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -142,30 +191,22 @@
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container is-max-desktop">
-      <h2 class="title is-3">Method</h2>
-      <div class="content has-text-centered">
-        <p class="subtitle has-text-centered">
-          DexFlyWheel employs a self-improving cycle that iteratively expands data diversity through imitation learning, reinforcement learning, and data augmentation.
+      <h2 class="title is-3" style="text-align: center;">Method</h2>
+      <div class="content">
+        <div class="has-text-centered">
+          <video autoplay controls muted loop width="100%">
+            <source src="static/videos/method_h264.mp4" type="video/mp4">
+          </video>
+        </div>
+        <p class="has-text-justified mt-4" style="font-size: 0.95rem;">
+          <strong>Overview of DexFlyWheel.</strong> A scalable data generation framework that starts with seed demonstrations warmup and iteratively expands data diversity through a self-improving cycle. Each iteration integrates imitation learning, residual reinforcement learning, rollout trajectory collection, and data augmentation into a closed-loop pipeline.
         </p>
-        <img src="static/images/method.jpg" alt="DexFlyWheel Method" style="max-width: 900px; width: 100%;"/>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Real Robot Results -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3" style="text-align: center;"> Real Robot Results</h2>
-      <div class="content has-text-centered">
-        <video poster="" autoplay controls muted loop height="100%">
-          <source src="static/videos/real_robot_h264.mp4" type="video/mp4">
-        </video>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- Challenges and Insights
 <section class="hero is-small">
@@ -189,16 +230,40 @@
   </div>
 </section> -->
 
-<!-- Simulation Tasks -->
+<!-- Experimental Setups -->
 <section class="hero is-small">
   <div class="hero-body">
-    <div class="container">
-      <!-- <h2 class="title is-3">Simulation Results</h2> -->
+    <div class="container is-max-desktop">
+      <h2 class="title is-3" style="text-align: center;">Experimental Setups</h2>
+      <div class="content">
+        <ul class="has-text-justified" style="font-size: 0.95rem;">
+          <li class="mb-3">
+            To validate the effectiveness of our framework across diverse manipulation scenarios, we designed four challenging tasks encompassing both single-arm and dual-arm dexterous manipulation: grasp, pour, lift, and handover. These tasks cover a wide range of manipulation complexities and coordination demands.
+          </li>
+          <li class="mb-3">
+            For each task, we collected <strong>only one</strong> human demonstration through a VR-based teleoperation system.
+          </li>
+          <li class="mb-3">
+            We conducted <strong>three iterations</strong> of data generation within our framework for each task.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Simulation Results -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
       <h2 class="title is-3" style="text-align: center;">Simulation Results</h2>
+
+      <!-- 1. Simulation Demo Videos -->
+      <h3 class="title is-4" style="text-align: center;">Task Demonstrations</h3>
       <div class="columns is-multiline is-centered" style="gap: 1rem;">
         <!-- First row -->
         <div class="column is-narrow">
-          <div style="width: 300px;">
+          <div style="width: 450px;">
             <video autoplay controls muted loop width="100%">
               <source src="static/videos/graspsim_h264.mp4" type="video/mp4">
             </video>
@@ -206,7 +271,7 @@
           </div>
         </div>
         <div class="column is-narrow">
-          <div style="width: 300px;">
+          <div style="width: 450px;">
             <video autoplay controls muted loop width="100%">
               <source src="static/videos/poursim_h264.mp4" type="video/mp4">
             </video>
@@ -215,7 +280,7 @@
         </div>
         <!-- Second row -->
         <div class="column is-narrow">
-          <div style="width: 300px;">
+          <div style="width: 450px;">
             <video autoplay controls muted loop width="100%">
               <source src="static/videos/liftsim_h264.mp4" type="video/mp4">
             </video>
@@ -223,7 +288,7 @@
           </div>
         </div>
         <div class="column is-narrow">
-          <div style="width: 300px;">
+          <div style="width: 450px;">
             <video autoplay controls muted loop width="100%">
               <source src="static/videos/handoversim_h264.mp4" type="video/mp4">
             </video>
@@ -231,25 +296,93 @@
           </div>
         </div>
       </div>
+
+      <!-- 2. Iteration Results -->
+      <h3 class="title is-4 mt-6" style="text-align: center;">Iterative Data Generation Process</h3>
+      <div class="content">
+        <p class="has-text-justified">
+          Through three iterations of self-improvement, DexFlyWheel achieves:
+          <ul>
+            <li>Improvement in policy generalization: from <strong style="color: #FF00FF">16.5%</strong> to <strong style="color: #FF00FF">81.9%</strong> success rate on unseen scenarios configurations</li>
+            <li>Increase in data diversity: <strong style="color: #0000FF">214.7×</strong> total scenarios with <strong style="color: #0000FF">20×</strong> more object variations</li>
+            <li>Enhanced policy performance on various objects test sets: from <strong>48.5%</strong> to <strong style="color: #0000FF">82.6%</strong> success rate through RL refinement</li>
+          </ul>
+        </p>
+        <div class="has-text-centered">
+          <img src="static/images/iterationtable.png" alt="Iteration Results" style="max-width: 900px; width: 100%;"/>
+        </div>
+      </div>
+
+      <!-- 3. Performance Scaling -->
+      <h3 class="title is-4 mt-6" style="text-align: center;">Performance Scaling with Diverse Datasets Generated by DexFlyWheel</h3>
+      <div class="content">
+        <p class="has-text-justified" style="font-size: 0.95rem;">
+          With DexFlyWheel, we achieve simultaneous scaling of both data diversity and policy performance. This indicates the effectiveness of DexFlyWheel in generating diverse datasets, which contribute to enhanced policy generalization.
+        </p>
+        <div class="has-text-centered">
+          <img src="static/images/performance.jpg" alt="Performance Results" style="max-width: 900px; width: 100%;"/>
+        </div>
+      </div>
+
+      <!-- 4. Comparison with Baselines -->
+      <h3 class="title is-4 mt-6" style="text-align: center;">Comparison with Baselines</h3>
+      <div class="content">
+        <p class="has-text-justified" style="font-size: 0.95rem;">
+          Compared to DexMimicGen, our method demonstrates significant advantages in handling diverse objects and executing dynamic tasks, showcasing superior robustness across various manipulation scenarios.
+        </p>
+        <div class="has-text-centered mt-2">
+          <video autoplay controls muted loop width="100%">
+            <source src="static/videos/oursvsbaselines_h264.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
     </div>
   </div>
-</section> 
+</section>
 
-<!-- Performance Results -->
-<section class="hero is-small is-light">
+<!-- Real Robot Results -->
+<section class="hero is-small">
   <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3" style="text-align: center;"> Performance Scaling with Diverse Datasets Generated by DexFlyWheel</h2>
-      <div class="content has-text-centered">
-        <img src="static/images/performance.jpg" alt="Performance Results" style="max-width: 900px; width: 100%;"/>
+    <div class="container is-max-desktop">
+      <h2 class="title is-3" style="text-align: center;"> Real Robot Results</h2>
+      <div class="content">
+        <p class="has-text-justified" style="font-size: 0.95rem;">
+          Based on the data generated by DexFlyWheel, we successfully deployed it on a dual-arm dexterous robot system.
+        </p>
+        <div class="has-text-centered mt-10">
+          <video poster="" autoplay controls muted loop height="100%">
+            <source src="static/videos/real_robot_h264.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- Contributions -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3" style="text-align: center;">Contributions</h2>
+      <div class="content">
+        <ul class="has-text-justified" style="font-size: 0.95rem;">
+          <li class="mb-3">
+            We present DexFlyWheel, a novel framework that efficiently generates diverse dexterous manipulation data through iterative self-improving. Starting from a single human demonstrations per task, our framework efficiently generates diversity and high-quality demonstrations while maintaining human-like behavior patterns.
+          </li>
+          <li class="mb-3">
+            We demonstrate the effectiveness of our framework across multiple dexterous manipulation tasks. We generate over 2,000+ successful demonstrations from just one human demonstration per task with 500+ diverse scenarios, including 80 objects, 12 environments and 15 spatial configurations. Our approach significantly outperforms baseline data generation methods in both diversity and robustness.
+          </li>
+          <li class="mb-3">
+            We validate that policies trained with our generated data achieve over average 81.9% success rate in challenging test sets, significantly outperforming policies trained with data from alternative baselines. This superior performance demonstrates the framework's ability to enhance policy generalization across diverse scenarios.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-
-<!-- BibTex citation --> 
+<!-- BibTex citation -->
   <!-- <section class="section" id="BibTeX"> -->
     <!-- <div class="container is-max-desktop content"> -->
       <!-- <h2 class="title">BibTeX</h2> -->
