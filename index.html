@@ -110,10 +110,10 @@
       <div class="content has-text-justified">
         <ul class="has-text-weight-medium">
           <li>
-            DexFlyWheel is the <strong style="color: #B70101">first</strong> framework to continuously generate diverse and human-like dexterous manipulation data across different objects, environments, and spatial settings.
+            DexFlyWheel is the <strong style="color: #B70101">first</strong> framework to continuously generate diverse and high-quality dexterous manipulation data across different objects, environments, and spatial settings through a self-improving data flywheel.
           </li>
           <li>
-            DexFlyWheel can generate infinite demonstrations with just one human demo per task, significantly <strong style="color: #B70101">reducing human effort</strong>.
+            Starting from a single human demonstration per task, DexFlyWheel scales up to a 500.0× increase in new trajectories and a 214.7× increase in new scenarios, demonstrating <strong style="color: #B70101">scalable</strong> data generation while significantly <strong style="color: #B70101">reducing human effort</strong>.
           </li>
           <li>
             DexFlyWheel exhibits <strong style="color: #B70101">strong generalizability</strong> on unseen scenarios in simulation, and successfully transfer in real dual-arm robot system.
@@ -159,7 +159,7 @@
                 This implies that Human demonstrations provide a strong behavioral prior in data generation.
                 <span style="color: #0066cc">Imitation learning (IL)</span> uses it to imitate 
                 <span style="color: #0066cc">human-like</span> trajectories.
-                <span style="color: rgb(255, 183, 0)">Residual reinforcement learning (RL)</span> further refines these priors to handle 
+                <span style="color: rgb(255, 183, 0)">Residual reinforcement learning (res-RL)</span> further refines these priors to handle 
                 <span style="color: rgb(255, 183, 0)">diverse objects scenarios</span>.
               </p>
             </div>
@@ -303,9 +303,9 @@
         <p class="has-text-justified">
           Through three iterations of self-improvement, DexFlyWheel achieves:
           <ul>
+            <li>Scaling data diversity: <strong style="color: #ff0037">214.7×</strong> total scenarios with <strong style="color: #ff0037">20×</strong> more object variations</li>
             <li>Improvement in policy generalization: from <strong style="color: #FF00FF">16.5%</strong> to <strong style="color: #FF00FF">81.9%</strong> success rate on unseen scenarios configurations</li>
-            <li>Increase in data diversity: <strong style="color: #0000FF">214.7×</strong> total scenarios with <strong style="color: #0000FF">20×</strong> more object variations</li>
-            <li>Enhanced policy performance on various objects test sets: from <strong>48.5%</strong> to <strong style="color: #0000FF">82.6%</strong> success rate through RL refinement</li>
+            <li>Enhanced policy performance by residual RL: from <strong>48.5%</strong> to <strong style="color: #0000FF">82.6%</strong> success rate through residual RL refinement</li>
           </ul>
         </p>
         <div class="has-text-centered">
@@ -336,6 +336,22 @@
           </video>
         </div>
       </div>
+
+
+      <!-- 5. Data Generation Efficiency -->
+      <h3 class="title is-4 mt-6" style="text-align: center;">Data Generation Efficiency of DexFlyWheel</h3>
+      <div class="content">
+        <p class="has-text-justified" style="font-size: 0.95rem;">
+          DexFlyWheel significantly improves data generation efficiency by reducing the time and effort required for collecting successful demonstrations. 
+          Compared to prior methods like human teleoperation and replay-based pipelines, DexFlyWheel achieves faster per-trajectory generation and higher success rates across tasks, 
+          enabling robust and cost-effective dataset creation.
+        </p>
+        <div class="has-text-centered">
+          <img src="static/images/efficiency.png" alt="Data Generation Efficiency" style="max-width: 900px; width: 100%;"/>
+        </div>
+      </div>
+
+
 
     </div>
   </div>
