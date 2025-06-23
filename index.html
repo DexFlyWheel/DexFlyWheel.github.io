@@ -129,14 +129,17 @@
 <!-- Main video -->
 <section class="hero teaser">
   <div class="container is-max-desktop">
-    <!-- <h2 class="title is-3" style="text-align: center;">Summary Video</h2> -->
-    <div class="hero-body">
-      <video poster="" id="main-video" autoplay controls muted loop height="100%">
-        <source src="static/videos/teaservideo_h264.mp4" type="video/mp4">
-      </video>
+    <div class="hero-body" style="text-align: center;">
+      <iframe width="800" height="450"
+              src="https://www.youtube.com/embed/zhrrH56Graw"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+      </iframe>
     </div>
   </div>
 </section>
+
 
 
 <!-- Motivation -->
@@ -327,9 +330,22 @@
       <!-- 4. Comparison with Baselines -->
       <h3 class="title is-4 mt-6" style="text-align: center;">Comparison with Baselines</h3>
       <div class="content">
+        <!-- 插入 Baselines 表格图 -->
+        <div class="has-text-centered mb-3">
+          <img src="static/images/baselines.png" alt="Baseline Comparison Table" style="max-width: 100%; width: 800px;" />
+          <!-- <p style="font-size: 0.85rem; margin-top: 0.5rem;"><em>DexFlyWheel consistently achieves higher success rates than replay-based methods.Compared to the Human Demo baseline, which uses 20 teleoperated trajectories per task, DexFlyWheel achieves vastly superior performance—81.9% vs. 13.4% average success—while requiring only a single human demonstration per task, significantly reducing the human effort.</em></p> -->
+        </div>
+        <p class="has-text-justified" style="font-size: 0.95rem; margin-top: 0.5rem;">
+          DexFlyWheel consistently achieves higher success rates than replay-based methods.Compared to the Human Demo baseline, which uses 20 teleoperated trajectories per task, DexFlyWheel achieves vastly superior performance—81.9% vs. 13.4% average success—while requiring only a single human demonstration per task, significantly reducing the human effort.
+        </p>
+
+
+        <!-- 段落说明 -->
         <p class="has-text-justified" style="font-size: 0.95rem;">
           Compared to DexMimicGen, our method demonstrates significant advantages in handling diverse objects and executing dynamic tasks, showcasing superior robustness across various manipulation scenarios.
         </p>
+
+        <!-- 视频展示 -->
         <div class="has-text-centered mt-2">
           <video autoplay controls muted loop width="100%">
             <source src="static/videos/oursvsbaselines_h264.mp4" type="video/mp4">
@@ -384,13 +400,11 @@
       <div class="content">
         <ul class="has-text-justified" style="font-size: 0.95rem;">
           <li class="mb-3">
-            We present DexFlyWheel, a novel framework that efficiently generates diverse dexterous manipulation data through iterative self-improving. Starting from a single human demonstrations per task, our framework efficiently generates diversity and high-quality demonstrations while maintaining human-like behavior patterns.
-          </li>
+            We propose DexFlyWheel, a scalable and generalizable data generation paradigm for dexterous manipulation. DexFlyWheel autonomously enables the continuous generation of diverse and high-quality data through a self-improving data flywheel mechanism, with minimal human effort.          </li>
           <li class="mb-3">
-            We demonstrate the effectiveness of our framework across multiple dexterous manipulation tasks. We generate over 2,000+ successful demonstrations from just one human demonstration per task with 500+ diverse scenarios, including 80 objects, 12 environments and 15 spatial configurations. Our approach significantly outperforms baseline data generation methods in both diversity and robustness.
-          </li>
+            We empirically demonstrate the  data flywheel effect in dexterous manipulation across four challenging tasks. Starting from a single human demonstration per task, DexFlyWheel leads to a 500.0x increase in new trajectories and a 214.7× increase in new scenario configurations, significantly outperforms replay-only pipelines in diverse data scalability.          </li>
           <li class="mb-3">
-            We validate that policies trained with our generated data achieve over average 81.9% success rate in challenging test sets, significantly outperforming policies trained with data from alternative baselines. This superior performance demonstrates the framework's ability to enhance policy generalization across diverse scenarios.
+            We validate the effectiveness of our generated data in training generalizable policies, achieving an average 81.9\% success rate on challenging test sets and significantly outperforming policies trained on data from data generation baselines. Furthermore, we transfer our policies in real-world dual-arm robot system via digital twin, with 78.3% success rate in lift and 63.3% in handover tasks.
           </li>
         </ul>
       </div>
